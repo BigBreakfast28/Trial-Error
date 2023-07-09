@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     #My installations   
     'core',
     'core.user',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
