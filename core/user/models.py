@@ -73,4 +73,11 @@ class UserManager(BaseUserManager):
 
         return user
 
+objects = UserManager()
+
+def __str__(self):
+    return f"{self.email}"
     
+@property 
+def name(self):
+    return f"{self.first_name} {self.last_name}"
