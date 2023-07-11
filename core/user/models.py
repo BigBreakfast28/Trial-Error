@@ -35,15 +35,7 @@ class UserManager(BaseUserManager):
         except (ObjectDoesNotExist, ValueError, TypeError):
             return Http404
         
-        objects = UserManager()
 
-        def __str__(self):
-            return f"{self.email}"
-    
-        @property 
-        def name(self):
-            return f"{self.first_name} {self.last_name}"
-        
     def create_user(self, username, email, password=None, **kwargs):
         if username is None:
             raise TypeError('Users must a username.')
@@ -73,4 +65,12 @@ class UserManager(BaseUserManager):
 
         return user
 
+    objects = UserManager()
+
+    def __str__(self):
+        return f"{self.email}"
     
+    @property 
+    def name(self):
+        return f"{self.first_name} {self.last_name}"
+        

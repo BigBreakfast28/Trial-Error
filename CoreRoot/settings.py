@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'CoreRoot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'coredb',
         'USER': 'core',
         'PASSWORD': 'wCh29&HE&T83',
