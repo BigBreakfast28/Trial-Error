@@ -14,7 +14,7 @@ import os
 
 import django
 django.setup()
-
+import psycopg2
 
 
 from pathlib import Path
