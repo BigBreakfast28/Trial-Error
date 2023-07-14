@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
-
-import django
-django.setup()
 import psycopg2
 
 

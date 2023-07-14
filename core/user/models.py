@@ -5,6 +5,7 @@ from django.contrib.auth.models import (
     PermissionsMixin,
 )
 from django import ObjectDoesNotExist
+from django.core.exceptions import FieldDoesNotExist
 from django.db import models
 from django.http import Http404
 from django import permissions
