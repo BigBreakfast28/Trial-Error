@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
 
 from core.user.serializers import UserSerializer
@@ -7,7 +6,7 @@ from core.user.models import User
 
 class UserViewSet(viewsets.ModelViewSet):
     http_method_names = ('patch', 'get')
-    permission_classes = (AllowAny,)
+    permission_classes = (IsAuthenticated,)
     serializer_class = UserSerializer
 
     def get_queryset(self):
@@ -21,4 +20,4 @@ class UserViewSet(viewsets.ModelViewSet):
 
         return obj
 
-# Create your views here.
+
