@@ -9,8 +9,8 @@ class AbstractManager(models.Manager):
         try:
             instance = self.get(public_id=public_id)
             return instance
-        except (ObjectDoesNotExist, ValueError, TypeError)
-        return Http404
+        except (ObjectDoesNotExist, ValueError, TypeError):
+            return Http404
     
 class AbstractModel(models.Model):
     public_id = models.UUIDField(db_index=True, unique=True, default=uuid.uuid4, editable=False)
@@ -21,5 +21,4 @@ class AbstractModel(models.Model):
 
     class Meta:
         abstract = True
-        
-# Create your models here.
+
