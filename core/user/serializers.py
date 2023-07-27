@@ -1,4 +1,4 @@
-from rest_framework import AbstractSerializer
+from core.abstract.serializers import AbstractSerializer
 from core.user.models import User
 
 class UserSerializer(AbstractSerializer):

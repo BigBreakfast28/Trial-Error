@@ -1,23 +1,6 @@
-from django.db import models
-import uuid
+from rest_framework import serializers
 
-from django.core.exceptions import ObjectDoesNotExist
-from django.http import Http404
-
-class AbstractManager(models.Manager):
-    def get_object_by_id(self, public_id):
-        try:
-            instance = self.get(public_id=public_id)
-            return instance
-        except (ObjectDoesNotExist, ValueError, TypeError):
-            return Http404
-        
-class AbstractionModel(models.Model):
-    public_id = models.UUIDField(db_index=True,unique=True, default=uuid.uuid4, editable=False)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now_add=True)
-
-    objects=AbstractManager()
-
-    class Meta: 
-        abstract = True
+class AbstractSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField(source='public_id', read_only=True, format='hex')
+    created = serializers.DateTimeField(read_only=True)
+    updated = serializers.DateTimeField(read_only=True)
